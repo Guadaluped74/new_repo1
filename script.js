@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector('#generate');
-
+ generateBtn.addEventListener('click', writePassword);
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -19,7 +19,7 @@ var special =["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "=", "
   
 
 
-function button() {
+function generatePassword () {
   password.inneHtml="";
   var pwlength = prompt("how long should the password be {8-128}?");{
    if(pwlength<8) {
@@ -75,6 +75,6 @@ for (let i = 0; i < array.pwlength; i++) {
 
 }
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+
 
 
