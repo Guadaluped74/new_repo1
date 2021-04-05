@@ -41,7 +41,7 @@ function generatePassword () {
 
 var character = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] 
 
-  var capital = confrim("Capital letters?");{
+  var capital = confirm("Capital letters?");
   if (capital === true) {character.push(capLetter);
   alert("Capital letters selected");
   } 
@@ -51,20 +51,20 @@ var character = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 
   
 
-var numbers = confrim( "numbers?");{
+var numbers = confirm( "numbers?");
   if (numbers === true){character.push(number);
     alert("numbers selected");}
  
   else alert("No numbers.");
  
-}
-var specials = confrim( "special characters ?");{
+
+var specials = confirm( "special characters ?");
   if (specials === true){character.push(special);
     alert("specials selected");}
  
   else alert("No specials.");
  
-}
+
 
 
 for (let i = 0; i < array.pwlength; i++) {
