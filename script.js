@@ -73,7 +73,7 @@ for (let i = 0; i < array.pwlength; i++) {
   
 }
 
-}
+
 // Add event listener to generate button
 
 
