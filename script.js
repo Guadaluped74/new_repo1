@@ -47,7 +47,7 @@ var character = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
   } 
   else alert("No capital letters.");
  
-  }
+  
 
   
 
@@ -65,6 +65,7 @@ var specials = confirm( "special characters ?");
   else alert("No specials.");
  
 
+  }
 
 
 for (let i = 0; i < array.pwlength; i++) {
