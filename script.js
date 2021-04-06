@@ -1,79 +1,69 @@
-// Assignment Code
-var generateBtn = document.querySelector('#generate');
- generateBtn.addEventListener('click', writePassword);
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
- 
-  passwordText.value = password;
+var lower = 'abcdefghijklmnopqrstuvwxyz';
+var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var special = '!@#$^&%*()+=-[]{}|:<>?,.';
+var numbers = '1234567890';
+
+var pwd = '';
+
+var lowerSelection = false;
+var upperSelection = false;
+var specialSelection = false;
+var numberSelection = false;
+
+
+//function to generate a random password
+
+function generate() {
+    var confirmLength = '';
+//asking user to input desired character length
+    while (isNaN(confirmLength) || confirmLength < 8 || confirmLength > 128) {
+        confirmLength = prompt("What length would you like the password to be? (Between 8 to 128 characters)");
+        if (confirmLength === null) {
+            break;
+        }
+    }
+//getting user input for which character types to use for the password
+    if (confirmLength) {
+        if (confirm("Would you like to use lowercase characters?") == true) {
+            lowerSelection = true
+        } 
+
+        if (confirm("Would you like to use uppercase characters?") == true) {
+            upperSelection = true
+        }
+
+        if (confirm("Would you like to use special characters?") == true) {
+            specialSelection = true
+        }
+
+        if (confirm("Would you like to use numerical characters?") == true) {
+            numberSelection = true
+        }
+//if none of the character types are selected, alerts the user to choose at least one
+        if (lowerSelection === false && upperSelection === false && specialSelection === false && numberSelection === false) {
+            alert("At least one character type must be selected")
+        }
+    }
+//generate random password
+    var characters = '';
+    characters += (lowerSelection ? lower : '');
+    characters += (upperSelection ? upper : '');
+    characters += (specialSelection ? special : '');
+    characters += (numberSelection ? numbers : '');
+
+    pwd = password(confirmLength, characters);
+
+    document.getElementById("password").innerHTML = pwd;
+
 }
 
-var upperLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
-var lowerLetter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-var special =["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "=", "+"]; 
-  
-
-
-function generatePassword () {
-  password.inneHtml="";
-  var pwlength = prompt("how long should the password be {8-128}?");{
-   if(pwlength<8) {
-   alert("higher number");
-  }
-  else if  (pwlength > 128) {
-    alert("lower number");
-  }
-  else if (isNaN(pwlength)===true) {
-  alert("number please");
-
-  }
+function password(l, characters) {
+    var pwd = '';
+    for (var i = 0; i < l; ++i) {
+        pwd += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return pwd;
 }
-
-  
-  alert("password is lower case by default")
-
-  
-
-var character = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] 
-
-  var capital = confirm("Capital letters?");
-  if (capital === true) {character.push(upperLetter);
-  alert("Capital letters selected");
-  } 
-  else alert("No capital letters.");
- 
-  
-
-  
-
-var numbers = confirm( "numbers?");
-  if (numbers === true){character.push(number);
-    alert("numbers selected");}
- 
-  else alert("No numbers.");
- 
-
-var specials = confirm( "special characters ?");
-  if (specials === true){character.push(special);
-    alert("specials selected");}
- 
-  else alert("No specials.");
- 
-
-  }
-
-
-for (let i = 0; i < array.pwlength; i++) {
-  var choices = character[math.floor(math.radom()*character.pwlength)]
-  document.getElementById("password").innerHTML += choices;
-  
-}
-
 
 // Add event listener to generate button
 
