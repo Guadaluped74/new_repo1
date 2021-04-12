@@ -1,4 +1,4 @@
-const { Console } = require("node:console");
+
 
 // Assignment Code
 var generateBtn = document.querySelector('#generate');
